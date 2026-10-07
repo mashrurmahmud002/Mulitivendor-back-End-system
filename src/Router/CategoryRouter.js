@@ -7,6 +7,8 @@ const router = Router();
 
 router.get('/categories', catrgoryController.getCategories);
 
+
+
     
 
 

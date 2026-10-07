@@ -13,6 +13,12 @@ export const getCategories = async(req,res)=>{
 
 
 
+
+
+
+
+
+
 export default {
     getCategories
 }
