@@ -33,18 +33,12 @@ const vendorSchema = new mongoose.Schema({
     storeUrl:{
         type:String
     },
-    type:{
+    
+    category:{
         type:String,
-        required:true
+        
     },
-    primary_category:{
-        type:String,
-        required:true
-    },
-    buisness_address:{
-        type:String,
-        required:true
-    },
+   
     city:{
         type:String,
         required:true
@@ -61,8 +55,7 @@ const vendorSchema = new mongoose.Schema({
     storeDescription:{
         type:String,
         required:true,
-        minlength:80,
-        maxlength:320
+       
     },
     website:{
         type:String
@@ -77,7 +70,15 @@ const vendorSchema = new mongoose.Schema({
     returnPolicy:{
         type:String,
         required:true
-    }
+    },
+    acceptTerms:{
+        type:Boolean,
+        default:false
+    },
+    termsAccepted: {
+        type: Boolean,
+        default: false,
+      },
 
 
      

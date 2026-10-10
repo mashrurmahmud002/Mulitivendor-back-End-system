@@ -158,6 +158,9 @@ const productSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    // 👇 এই অংশটুকু যোগ করতে হবে যেন JSON রেসপন্সে Virtuals পাস হয়
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 
@@ -173,10 +176,8 @@ productSchema.pre("save", async function(){
 productSchema.virtual("isNewProduct").get(function(){
   if(!this.createdAt) return false;
 
-  const three_days_in_mins = 3 * 24 * 60 * 60 * 1000;
-  const age_in_mins = new Date() - new Date(this.createdAt);
-
-  return age_in_mins <= three_days_in_mins
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+  return new Date() - new Date(this.createdAt) <= THREE_DAYS_IN_MS;
 })
 
 

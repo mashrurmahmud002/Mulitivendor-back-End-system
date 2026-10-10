@@ -42,7 +42,7 @@ const generateSkutoken = (prefix="SKu")=>{
 
 app.use("/api/category-box", categoryRouter);
 app.use('/api/sub-category', subcategoryRouter);
-app.use("/api/vendor", vendorRouter );
+app.use("/api/vendor-auth", vendorRouter );
 app.use('/api/vendor-product-upload', productUploadRouter);
 
 app.use("/api/auth", authRouter);

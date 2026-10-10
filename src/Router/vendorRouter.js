@@ -9,7 +9,8 @@ import vendorController from"../controller/vendorController.js";
 
 const router = Router();
 
-router.post('/create-vendor', protectRouter,  vendorController.createVendor); 
+router.post('/create-vendor-register',  vendorController.createVendor); 
+
 
 
 
