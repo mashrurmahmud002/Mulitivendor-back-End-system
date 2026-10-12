@@ -11,8 +11,14 @@ export const getProducts = async(product_data)=>{
     return products;
 }
 
+export const getProductsByVendorId = async(vendor_id)=>{
+    const products = await productUploadRepo.getProductsByVendorId(vendor_id);
+    return products;
+}
+
 
 export default {
     uploadProduct,
-    getProducts
+    getProducts,
+    getProductsByVendorId
 }

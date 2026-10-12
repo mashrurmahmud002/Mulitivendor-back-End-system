@@ -17,6 +17,7 @@ import subcategoryRouter from "./Router/subcategoryRouter.js";
 import productUploadRouter from "./Router/ProductUploadRouter.js";
 
 import authRouter from "./Router/AuthRouter.js";
+import cookieParser from "cookie-parser";
 
 
 
@@ -25,6 +26,7 @@ dotenv.config();
 
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 

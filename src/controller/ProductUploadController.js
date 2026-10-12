@@ -23,6 +23,15 @@ export const getProducts = async(req,res)=>{
 }
 
 
+export const getProductsByVendorId = async(req,res)=>{
+    const products = await productUploadService.getProductsByVendorId(req.params.id);
+    res.status(200).json({
+        message:"Products fetched successfully",
+        products
+    });
+}
+
+
 
 
 
@@ -38,5 +47,6 @@ export const getProducts = async(req,res)=>{
 
 export default {
     uploadProduct,
-    getProducts
+    getProducts,
+    getProductsByVendorId
 }

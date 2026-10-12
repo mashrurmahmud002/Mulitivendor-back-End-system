@@ -12,6 +12,11 @@ export const getProducts = async(product_data)=>{
     return products;
 }
 
+export const getProductsByVendorId = async(vendor_id)=>{
+    const products = await productUpload.findOne(vendor_id);
+    return products;
+}
+
 
 export default {
     uploadProduct,
