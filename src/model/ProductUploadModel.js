@@ -147,6 +147,11 @@ const productSchema = new mongoose.Schema(
         type:[String],
         required: true
     },
+    vendor_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Vendor",
+        
+    },
 
    
 

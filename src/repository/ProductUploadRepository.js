@@ -13,12 +13,13 @@ export const getProducts = async(product_data)=>{
 }
 
 export const getProductsByVendorId = async(vendor_id)=>{
-    const products = await productUpload.findOne(vendor_id);
+    const products = await productUpload.findOne({_id:vendor_id});
     return products;
 }
 
 
 export default {
     uploadProduct,
-    getProducts
+    getProducts,
+    getProductsByVendorId
 }
