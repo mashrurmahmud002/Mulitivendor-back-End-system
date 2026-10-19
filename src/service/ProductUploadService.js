@@ -1,5 +1,5 @@
 
-import productUploadRepo from "../repository/productUploadRepository.js";
+import productUploadRepo from "../repository/ProductUploadRepository.js";
 
 export const uploadProduct = async(product_data)=>{
     const product_add = await productUploadRepo.uploadProduct(product_data);
