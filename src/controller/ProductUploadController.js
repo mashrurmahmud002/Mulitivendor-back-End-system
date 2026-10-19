@@ -1,4 +1,4 @@
-import productUploadService from "../service/productUploadService.js";
+import productUploadService from "../service/ProductUploadService.js";
 
 
 export const uploadProduct = async(req,res)=>{
