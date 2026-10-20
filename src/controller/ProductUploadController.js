@@ -23,6 +23,18 @@ export const getProducts = async(req,res)=>{
 }
 
 
+export const searchProducts = async(req,res)=>{
+
+    const {title}= req.query;
+    console.log(title);
+    const products = await productUploadService.searchProducts(title);
+    res.status(200).json({
+        message:"Products fetched successfully",
+        products
+    });
+}
+
+
 export const getProductsByVendorId = async(req,res)=>{
     const products = await productUploadService.getProductsByVendorId(req.params.id);
     res.status(200).json({
@@ -48,5 +60,6 @@ export const getProductsByVendorId = async(req,res)=>{
 export default {
     uploadProduct,
     getProducts,
-    getProductsByVendorId
+    getProductsByVendorId,
+    searchProducts
 }

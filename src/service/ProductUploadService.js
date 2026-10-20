@@ -16,9 +16,17 @@ export const getProductsByVendorId = async(vendor_id)=>{
     return products;
 }
 
+export const searchProducts = async(title)=>{
+    const query = {}
+    const products = await productUploadRepo.searchProducts(title,query);
+
+    return products;
+}
+
 
 export default {
     uploadProduct,
     getProducts,
-    getProductsByVendorId
+    getProductsByVendorId,
+    searchProducts
 }

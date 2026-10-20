@@ -17,9 +17,21 @@ export const getProductsByVendorId = async(vendor_id)=>{
     return products;
 }
 
+export const searchProducts = async(title, query)=>{
+
+    const products = await productUpload.find({
+         title: { $regex: title, $options: 'i' },
+    })
+
+    return products;
+    
+
+}
 
 export default {
     uploadProduct,
     getProducts,
-    getProductsByVendorId
+    getProductsByVendorId,
+    searchProducts
+    
 }
