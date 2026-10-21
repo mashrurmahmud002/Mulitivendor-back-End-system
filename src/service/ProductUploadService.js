@@ -23,10 +23,18 @@ export const searchProducts = async(title)=>{
     return products;
 }
 
+export const getProductsByQuery = async(all, home, fashion, technology,books_media,automative,food)=>{
+
+    const products = await productUploadRepo.getProductsByQuery(all, home, fashion, technology,books_media,automative,food);
+    return products;
+    
+}
+
 
 export default {
     uploadProduct,
     getProducts,
     getProductsByVendorId,
-    searchProducts
+    searchProducts,
+    getProductsByQuery
 }

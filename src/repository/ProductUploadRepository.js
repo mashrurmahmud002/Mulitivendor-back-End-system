@@ -28,6 +28,49 @@ export const searchProducts = async(title, query)=>{
 
 }
 
+export const getProductsByQuery = async(all, home, fashion, technology,books_media,automative,food)=>{
+    const threeDaysAgo = new Date(
+      Date.now() - 3 * 24 * 60 * 60 * 1000
+    );
+
+    if(all){
+        const products = await productUpload.find({createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+    if(home){
+        const products = await productUpload.find({category:"Home", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+    if(technology){
+        const products = await productUpload.find({category:"Electronics", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+    if(fashion){
+        const products = await productUpload.find({category:"Fashion", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+
+    }
+    if(books_media){
+        const products = await productUpload.find({category:"Books", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }  
+    
+    if(food){
+        const products = await productUpload.find({category:"Food", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+
+    }
+    if(automative){
+        const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+
+
+}
+
+
+
+
 export default {
     uploadProduct,
     getProducts,
