@@ -28,39 +28,39 @@ export const searchProducts = async(title, query)=>{
 
 }
 
-export const getProductsByQuery = async(all, home, fashion, technology,books_media,automative,food)=>{
+export const getProductsByQuery = async(category)=>{
     const threeDaysAgo = new Date(
       Date.now() - 3 * 24 * 60 * 60 * 1000
     );
 
-    if(all){
+    if(category === "all"){
         const products = await productUpload.find({createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
-    if(home){
+    if(category === "home"){
         const products = await productUpload.find({category:"Home", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
-    if(technology){
-        const products = await productUpload.find({category:"Electronics", createdAt:{$gte:threeDaysAgo}, status:"active"});
+    if(category === "fashion"){
+        const products = await productUpload.find({category:"Fashion", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
-    if(fashion){
-        const products = await productUpload.find({category:"Fashion", createdAt:{$gte:threeDaysAgo}, status:"active"});
+    if(category === "beauty"){
+        const products = await productUpload.find({category:"Beauty", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
 
     }
-    if(books_media){
-        const products = await productUpload.find({category:"Books", createdAt:{$gte:threeDaysAgo}, status:"active"});
+    if(category === "automative"){
+        const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }  
     
-    if(food){
+    if(category === "food"){
         const products = await productUpload.find({category:"Food", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
 
     }
-    if(automative){
+    if(category === "automative"){
         const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
@@ -75,6 +75,7 @@ export default {
     uploadProduct,
     getProducts,
     getProductsByVendorId,
-    searchProducts
+    searchProducts,
+    getProductsByQuery
     
 }
