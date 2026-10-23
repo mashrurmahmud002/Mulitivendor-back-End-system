@@ -46,12 +46,19 @@ export const getProductsByVendorId = async(req,res)=>{
 
 export const getProductsByQuery = async(req,res)=>{
     const {category} = req.query;
+    console.log(category, "category");
     
 
     const products = await productUploadService.getProductsByQuery(category);
     if(!products){
         return res.status(400).json({message:"Products not found"});
     }
+
+    if(products.length === 0){
+        return res.status(400).json({message:"Products not found"})
+    }
+   
+    console.log("hello baccho")
     res.status(200).json({
         message:"Products fetched successfully",
         products

@@ -38,6 +38,7 @@ export const getProductsByQuery = async(category)=>{
         return products
     }
     if(category === "home"){
+        console.log("Hello home")
         const products = await productUpload.find({category:"Home", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
@@ -46,24 +47,42 @@ export const getProductsByQuery = async(category)=>{
         return products
     }
     if(category === "beauty"){
+        console.log("hello beauty")
         const products = await productUpload.find({category:"Beauty", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        console.log("The beauty info", products)
         return products
 
     }
-    if(category === "automative"){
+    if(category === "automotive"){
         const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        console.log(products, "THis is form automative")
         return products
     }  
     
     if(category === "food"){
+        
         const products = await productUpload.find({category:"Food", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
 
     }
-    if(category === "automative"){
-        const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
+    if(category === "sports"){
+        console.log(category === "sports");
+        const products = await productUpload.find({category:"Sports", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        console.log(products);
         return products
     }
+    if(category === "electronics"){
+        console.log("hello electronics");
+        const products = await productUpload.find({category:"Electronics", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        console.log(products);
+        return products
+    }
+    if(category === "books"){
+        const products = await productUpload.find({category:"Books", createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+
+
 
 
 }

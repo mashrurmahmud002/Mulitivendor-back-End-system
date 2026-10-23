@@ -70,7 +70,7 @@ import vendorService from "../service/vendorService.js"
 
         
 
-    }else{
+       }else{
 
         return res.status(400).json({
             message:"Vendor not logged in"

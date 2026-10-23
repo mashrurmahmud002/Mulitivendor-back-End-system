@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const allowedOrigins = [
   'http://localhost:5173',                 // Your local frontend (change port if needed)
-  'https://onrender.com'     // Your deployed frontend on Render
+  'https://multivendor-front-end-website.onrender.com'     // Your deployed frontend on Render
 ];
 
 app.use(cors({
