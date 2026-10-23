@@ -8,7 +8,9 @@ export const createVendor = async(vendor_data)=>{
 
 
 export const loginVendor = async(data)=>{
-    const vendor_add = await vendor.findOne(data);
+    console.log(data,"data from vendor login repo");
+    const vendor_add = await vendor.findOne({email:data.email, password:data.password});
+    console.log(vendor_add);
     return vendor_add;
 }
 

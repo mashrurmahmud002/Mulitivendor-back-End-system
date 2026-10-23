@@ -52,8 +52,10 @@ import vendorService from "../service/vendorService.js"
 
  export const loginVendor = async(req,res)=>{
     const vendor_data = req.body;
+    console.log(vendor_data);
     
     const vendor_add = await vendorService.loginVendor(vendor_data);
+    console.log(vendor_add, "vendor_add");
   
     if(vendor_add){
          const email_exist = await auth.findOne({email:vendor_data.email});
