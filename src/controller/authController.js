@@ -67,9 +67,10 @@ export const userExist = async(req,res)=>{
     const {_id} = req.body;
     const user = await auth.findById({_id:_id});
     if(user){
-        return res.status(400).json({message:"User is online"});
+        return res.status(200).json({message:"User is online"});
     
-}
+    }
+    return res.status(400).json({message:"User is offline"});
 
 }
 
