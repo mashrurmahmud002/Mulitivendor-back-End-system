@@ -20,4 +20,5 @@ export const loginUser = async(email,password)=>{
 }
 
 
+
 export default {createUser, findIdbyEmail, loginUser}
