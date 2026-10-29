@@ -3,6 +3,7 @@
 import { createToken } from "../middleWare/verifytoken.js";
 import auth from "../model/AuthModel.js";
 import authService from "../service/authService.js";
+import bcrypt from 'bcryptjs';
 
 
 
@@ -43,15 +44,17 @@ export const loginUser = async(req,res)=>{
         return res.status(400).json({message:"Please fill all the fields"});
     }
     const user = await authService.findIdbyEmail(email);
-    console.log(user)
+    console.log(user,"user is ")
     if(!user){
+        console.log("I am comming")
         return res.status(400).json({message:"User not found"});
     }
-    if(user.password !== password){
-        return res.status(400).json({message:"Incorrect password"});
+    const isValidPassword = await bcrypt.compare(password, user?.password);
+    if(!isValidPassword){
+        return res.status(400).json({message:"Invalid password"});
     }
-    const token = createToken({email,password});
-    res.cookie('rafi_token', token, { httpOnly: false, secure: "production", sameSite: 'lax' });
+    const token = createToken({email,password,_id:user._id});
+    res.cookie('rafi_token', token, { httpOnly: false, secure: process.env.NODE_ENV==="production", sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", });
     res.status(200).json({message:"User logged in successfully", success:true, data:{
         user,
         token
@@ -64,7 +67,7 @@ export const logoutUser = async(req,res)=>{
 }
 
 export const userExist = async(req,res)=>{
-    const {_id} = req.body;
+    const {_id} = req.user;
     const user = await auth.findById({_id:_id});
     if(user){
         return res.status(200).json({message:"User is online"});
