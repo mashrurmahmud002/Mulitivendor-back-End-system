@@ -62,7 +62,7 @@ export const loginUser = async(req,res)=>{
 }
 
 export const logoutUser = async(req,res)=>{
-    res.clearCookie('rafi_token', { httpOnly: false, secure: "production", sameSite: 'lax' });
+    res.clearCookie('rafi_token', { httpOnly: false, secure: process.env.NODE_ENV==="production", sameSite: process.env.NODE_ENV === "production" ? "none" : "lax" });
     res.status(200).json({message:"User logged out successfully", success:true});
 }
 
