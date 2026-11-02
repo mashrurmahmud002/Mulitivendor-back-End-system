@@ -7,10 +7,14 @@ import mongoose from "mongoose";
 
 
 const cartSchema = new mongoose.Schema({
-    cartId:{
+    productId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"ProductUpload",
 
+    },
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
     },
 
     status:{
@@ -26,4 +30,4 @@ const cartSchema = new mongoose.Schema({
 
 
 const cart = mongoose.model("Cart", cartSchema,'cart');
-export default cart
+export default cart;

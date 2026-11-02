@@ -1,8 +1,8 @@
 
 import cartRepo from "../repository/CartRepository.js"
 
-export const addToCart = async(productInfo)=>{
-    const cart = await cartRepo.addToCart(productInfo);
+export const addToCart = async(userId,productId)=>{
+    const cart = await cartRepo.addToCart(userId,productId);
     return cart;
 }
 
