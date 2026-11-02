@@ -7,6 +7,11 @@ export const addToCart = async(userId,productId)=>{
     return cart1;
 }
 
+export const getUserCart = async()=>{
+    const cart1 = await cart.find({}).populate("productId","title imageArray price");
+    return cart1;
+}
+
 
 export default {
     addToCart

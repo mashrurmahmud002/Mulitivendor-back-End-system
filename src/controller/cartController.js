@@ -15,8 +15,21 @@ export const addToCart = async(req,res)=>{
     }
 }
 
+export const getUserCart = async(req,res)=>{
+
+    const cart = await cartService.getUserCart(req.user._id);
+    if(cart){
+        return res.status(200).json({message:"Cart fetched successfully", success:true, data:{cart}});
+    }
+    else{
+        return res.status(400).json({message:"Cart not fetched", success:false});
+    }
+
+}
+
 
 
 export default {
-    addToCart
+    addToCart,
+    getUserCart
 }

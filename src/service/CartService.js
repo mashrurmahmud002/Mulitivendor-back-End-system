@@ -6,8 +6,14 @@ export const addToCart = async(userId,productId)=>{
     return cart;
 }
 
+export const getUserCart = async(userId)=>{
+    const cart = await cartRepo.getUserCart(userId);
+    return cart;
+}
+
 
 
 export default {
-    addToCart
+    addToCart,
+    getUserCart
 }
