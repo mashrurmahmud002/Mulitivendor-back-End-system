@@ -12,8 +12,14 @@ export const getUserCart = async()=>{
     return cart1;
 }
 
+export const deleteFromCart = async(productId)=>{
+    const cart1 = await cart.findByIdAndDelete(productId);
+    return cart1
+}
+
 
 export default {
     addToCart,
-    getUserCart
+    getUserCart,
+    deleteFromCart
 }

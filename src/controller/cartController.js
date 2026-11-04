@@ -50,8 +50,36 @@ export const getUserCart = async(req,res)=>{
 }
 
 
+export const deleteFromCart = async(req, res)=>{
+
+    const {_id} = req?.user;
+    const {productId} = req.body;
+    console.log(_id);
+
+    try{
+        if(!_id){
+            return res.status(400).json({message:"User not found", success:false});
+        }
+        const cart = await cartService.deleteFromCart(productId);
+        
+        if(!cart){
+            return res.status(400).json({message:"Product not deleted from cart", success:false});
+        }
+        res.status(200).json({message:"Product deleted from cart successfully", success:true, data:{cart}});
+
+        
+
+    }catch(err){
+        console.log(err?.message);
+    }
+    
+
+}
+
+
 
 export default {
     addToCart,
-    getUserCart
+    getUserCart,
+    deleteFromCart
 }
