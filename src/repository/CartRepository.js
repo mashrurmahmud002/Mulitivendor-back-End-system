@@ -8,11 +8,12 @@ export const addToCart = async(userId,productId)=>{
 }
 
 export const getUserCart = async()=>{
-    const cart1 = await cart.find({}).populate("productId","title imageArray price");
+    const cart1 = await cart.find({}).populate("productId","title imageArray price quantity");
     return cart1;
 }
 
 
 export default {
-    addToCart
+    addToCart,
+    getUserCart
 }

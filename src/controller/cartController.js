@@ -1,23 +1,45 @@
 
+import cart from "../model/CartModle.js";
 import cartService from "../service/CartService.js";
 
 export const addToCart = async(req,res)=>{
-    const  {userId, productId} = req.params;
+    const  {userId, productId} = req.body;
+    console.log(userId, productId,"You are here");
 
    
-   
-    const cart = await cartService.addToCart(userId,productId);
-    if(cart){
-        return res.status(200).json({message:"Product added to cart successfully", success:true, data:{cart}});
+    try{
+        
+    
+
+    const userExist = await cart.findOne({userId:userId, productId:productId});
+    if(userExist){
+        console.log("I am in user Exist")
+        return res.status(400).json({message:"You have already added your product to cart", success:true,});
+    }
+
+    if(userId && productId){
+        const cart1 = await cartService.addToCart(userId,productId);
+        console.log("I am in cart1")
+        return res.status(200).json({message:"Product added to cart successfully", success:true, data:{cart1}});
+
     }
     else{
         return res.status(400).json({message:"Product not added to cart", success:false});
+    }
+    }
+    catch(err){
+        console.log(err?.message);
     }
 }
 
 export const getUserCart = async(req,res)=>{
 
-    const cart = await cartService.getUserCart(req.user._id);
+     const {_id} = req?.user;
+     console.log(_id,"THis is from get user cart");
+     
+
+     const cart = await cartService.getUserCart(_id);
+     console.log(cart,"THis is from get user cart");    
     if(cart){
         return res.status(200).json({message:"Cart fetched successfully", success:true, data:{cart}});
     }
