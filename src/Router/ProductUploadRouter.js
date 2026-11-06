@@ -18,6 +18,7 @@ router.get('/products/:id',  productController.getProductsByVendorId);
 router.get('/search-products',  productController.searchProducts);
 
 router.get('/query-products-new',  productController.getProductsByQuery);
+router.get('/query-products',  productController.getALLproductsByQuery);
 
 
 

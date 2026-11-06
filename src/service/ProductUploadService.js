@@ -30,11 +30,17 @@ export const getProductsByQuery = async(category)=>{
     
 }
 
+export const getALLproductsByQuery = async(category)=>{
+    const products = await productUploadRepo.getProductsByQuery(category);
+    return products;
+}
+
 
 export default {
     uploadProduct,
     getProducts,
     getProductsByVendorId,
     searchProducts,
-    getProductsByQuery
+    getProductsByQuery,
+    getALLproductsByQuery
 }

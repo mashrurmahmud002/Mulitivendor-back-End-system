@@ -62,6 +62,8 @@ export const deleteFromCart = async(req, res)=>{
         }
         const cart = await cartService.deleteFromCart(productId);
         
+
+        
         if(!cart){
             return res.status(400).json({message:"Product not deleted from cart", success:false});
         }
@@ -75,6 +77,9 @@ export const deleteFromCart = async(req, res)=>{
     
 
 }
+
+
+
 
 
 

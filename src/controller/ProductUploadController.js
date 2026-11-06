@@ -66,6 +66,15 @@ export const getProductsByQuery = async(req,res)=>{
     
 }
 
+export const getALLproductsByQuery = async(req,res)=>{
+    const {category} = req.query;
+    if(category){
+        const products = await productUploadService.getProductsByQuery(category);
+        return res.status(200).json({message:"Products fetched successfully", products});
+    }
+    res.status(400).json({message:"Products not found"});
+}
+
 
 
 
@@ -85,5 +94,6 @@ export default {
     getProducts,
     getProductsByVendorId,
     searchProducts,
-    getProductsByQuery
+    getProductsByQuery,
+    getALLproductsByQuery
 }

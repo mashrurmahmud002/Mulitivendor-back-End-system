@@ -87,6 +87,20 @@ export const getProductsByQuery = async(category)=>{
 
 }
 
+export const getALLproductsByQuery = async(category)=>{
+    const threeDaysAgo = new Date(
+      Date.now() - 3 * 24 * 60 * 60 * 1000
+    );
+    if(category === "all"){
+        const products = await productUpload.find({status:"active"});
+        return products
+    }
+    if(category === "new"){
+        const products = await productUpload.find({createdAt:{$gte:threeDaysAgo}, status:"active"});
+        return products
+    }
+}
+
 
 
 
