@@ -12,6 +12,7 @@ const router = Router();
 router.post('/create-vendor-register',  vendorController.createVendor); 
 router.post('/vendor-login',  vendorController.loginVendor);
 router.get("/top-vendor", vendorController.getTopVendor);
+router.get("/get-vendor-store-name", vendorController.getVendorStoreName);
 
 
 

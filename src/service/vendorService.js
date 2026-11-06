@@ -19,8 +19,11 @@ export const getTopVendor = async(data)=>{
 
 
 
+
+
 export default {
     createVendor,
     loginVendor,
-    getTopVendor
+    getTopVendor,
+   
 }

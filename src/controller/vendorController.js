@@ -2,6 +2,7 @@
 
 import { createToken } from "../middleWare/verifytoken.js";
 import auth from "../model/AuthModel.js";
+import vendor from "../model/Vendor.js";
 import vendorService from "../service/vendorService.js"
 
  export const createVendor = async(req,res)=>{
@@ -96,6 +97,19 @@ import vendorService from "../service/vendorService.js"
  }
 
 
+ export const getVendorStoreName = async(req,res)=>{
+   
+    const vendors = await vendor.aggregate([
+        {$project:{storeName:1}}
+    ])
+
+    res.status(200).json({
+        message:"Vendors store name fetched successfully",
+        vendors
+    });
+ }
+
+
 
 
 
@@ -105,5 +119,7 @@ import vendorService from "../service/vendorService.js"
  export default {
     createVendor,
     loginVendor,
-    getTopVendor
+    getTopVendor,
+    getVendorStoreName
+    
  }
