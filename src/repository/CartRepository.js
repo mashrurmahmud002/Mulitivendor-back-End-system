@@ -13,6 +13,7 @@ export const getUserCart = async()=>{
 }
 
 export const deleteFromCart = async(productId)=>{
+    console.log(productId," I am delete id");
     const cart1 = await cart.findByIdAndDelete(productId);
     return cart1
 }

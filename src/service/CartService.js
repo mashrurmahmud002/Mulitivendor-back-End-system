@@ -11,8 +11,8 @@ export const getUserCart = async(userId)=>{
     return cart;
 }
 
-export const deleteFromCart = async(productId)=>{
-    const cart = await cartRepo.deleteFromCart(productId);
+export const deleteFromCart = async(id)=>{
+    const cart = await cartRepo.deleteFromCart(id);
     return cart;
 }
 

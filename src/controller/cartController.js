@@ -52,15 +52,18 @@ export const getUserCart = async(req,res)=>{
 
 export const deleteFromCart = async(req, res)=>{
 
+    console.log("delete")
     const {_id} = req?.user;
-    const {productId} = req.body;
-    console.log(_id);
+    const id = req.params.id;
+    
 
     try{
         if(!_id){
+            console.log("i am in")
             return res.status(400).json({message:"User not found", success:false});
         }
-        const cart = await cartService.deleteFromCart(productId);
+        const cart = await cartService.deleteFromCart(id);
+        console.log("I am comming")
         
 
         
