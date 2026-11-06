@@ -35,6 +35,11 @@ export const getALLproductsByQuery = async(category)=>{
     return products;
 }
 
+export const getProductsByPagnation = async(skip, limit)=>{
+    const products = await productUploadRepo.getProductsByPagnation(skip, limit);
+    return products;
+}
+
 
 export default {
     uploadProduct,
@@ -42,5 +47,6 @@ export default {
     getProductsByVendorId,
     searchProducts,
     getProductsByQuery,
-    getALLproductsByQuery
+    getALLproductsByQuery,
+    getProductsByPagnation
 }

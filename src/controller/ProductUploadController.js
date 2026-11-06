@@ -1,3 +1,4 @@
+import productUpload from "../model/ProductUploadModel.js";
 import productUploadService from "../service/ProductUploadService.js";
 
 
@@ -75,6 +76,19 @@ export const getALLproductsByQuery = async(req,res)=>{
     res.status(400).json({message:"Products not found"});
 }
 
+export const getProductsByPagnation = async(req,res)=>{
+    const {page} = req.query;
+    const convertedPage = Number(page);
+    const limit = 10;
+    const skip = (convertedPage - 1) * limit;
+    const products = await productUploadService.getProductsByPagnation(skip, limit);
+
+    const totalProducts = await productUpload.countDocuments();
+    const totalPages = Math.ceil(totalProducts / limit);
+    res.status(200).json({message:"Products fetched successfully", products, totalPages});
+    
+}
+
 
 
 
@@ -95,5 +109,6 @@ export default {
     getProductsByVendorId,
     searchProducts,
     getProductsByQuery,
-    getALLproductsByQuery
+    getALLproductsByQuery,
+    getProductsByPagnation
 }

@@ -101,6 +101,11 @@ export const getALLproductsByQuery = async(category)=>{
     }
 }
 
+export const getProductsByPagnation = async(skip, limit)=>{
+    const products = await productUpload.find({}).skip(skip).limit(limit);
+    return products;
+}
+
 
 
 
@@ -109,6 +114,7 @@ export default {
     getProducts,
     getProductsByVendorId,
     searchProducts,
-    getProductsByQuery
+    getProductsByQuery,
+    getProductsByPagnation
     
 }

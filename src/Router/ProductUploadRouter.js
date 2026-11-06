@@ -19,6 +19,7 @@ router.get('/search-products',  productController.searchProducts);
 
 router.get('/query-products-new',  productController.getProductsByQuery);
 router.get('/query-products',  productController.getALLproductsByQuery);
+router.get('/get-all-products-by-pagnation',  productController.getProductsByPagnation);
 
 
 
