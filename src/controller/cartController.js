@@ -95,5 +95,6 @@ export const getUserCartlength = async(req, res)=>{
 export default {
     addToCart,
     getUserCart,
-    deleteFromCart
+    deleteFromCart,
+    getUserCartlength
 }
