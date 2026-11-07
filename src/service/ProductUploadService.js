@@ -31,7 +31,7 @@ export const getProductsByQuery = async(category)=>{
 }
 
 export const getALLproductsByQuery = async(category)=>{
-    const products = await productUploadRepo.getProductsByQuery(category);
+    const products = await productUploadRepo.getALLproductsByQuery(category);
     return products;
 }
 

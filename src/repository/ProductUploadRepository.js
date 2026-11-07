@@ -88,15 +88,52 @@ export const getProductsByQuery = async(category)=>{
 }
 
 export const getALLproductsByQuery = async(category)=>{
-    const threeDaysAgo = new Date(
-      Date.now() - 3 * 24 * 60 * 60 * 1000
-    );
     if(category === "all"){
-        const products = await productUpload.find({status:"active"});
+        const products = await productUpload.find( {status:"active"});
         return products
     }
-    if(category === "new"){
-        const products = await productUpload.find({createdAt:{$gte:threeDaysAgo}, status:"active"});
+    if(category === "home"){
+        console.log("Hello home")
+        const products = await productUpload.find({category:"Home",  status:"active"});
+        return products
+    }
+    if(category === "fashion"){
+        const products = await productUpload.find({category:"Fashion",  status:"active"});
+        return products
+    }
+    if(category === "beauty"){
+        console.log("hello beauty")
+        const products = await productUpload.find({category:"Beauty",  status:"active"});
+        console.log("The beauty info", products)
+        return products
+
+    }
+    if(category === "automotive"){
+        const products = await productUpload.find({category:"Automotive", status:"active"});
+        console.log(products, "THis is form automative")
+        return products
+    }  
+    
+    if(category === "food"){
+        
+        const products = await productUpload.find({category:"Food", status:"active"});
+        return products
+
+    }
+    if(category === "sports"){
+        console.log(category === "sports");
+        const products = await productUpload.find({category:"Sports",  status:"active"});
+        console.log(products);
+        return products
+    }
+    if(category === "electronics"){
+        console.log("hello electronics");
+        const products = await productUpload.find({category:"Electronics",  status:"active"});
+        console.log(products);
+        return products
+    }
+    if(category === "books"){
+        const products = await productUpload.find({category:"Books",  status:"active"});
         return products
     }
 }
@@ -115,6 +152,7 @@ export default {
     getProductsByVendorId,
     searchProducts,
     getProductsByQuery,
-    getProductsByPagnation
+    getProductsByPagnation,
+    getALLproductsByQuery
     
 }

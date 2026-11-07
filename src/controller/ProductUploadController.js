@@ -69,8 +69,9 @@ export const getProductsByQuery = async(req,res)=>{
 
 export const getALLproductsByQuery = async(req,res)=>{
     const {category} = req.query;
+    console.log(category, "category is from getALLproductsByQuery ");
     if(category){
-        const products = await productUploadService.getProductsByQuery(category);
+        const products = await productUploadService.getALLproductsByQuery(category);
         return res.status(200).json({message:"Products fetched successfully", products});
     }
     res.status(400).json({message:"Products not found"});
