@@ -78,14 +78,18 @@ export const getALLproductsByQuery = async(req,res)=>{
 }
 
 export const getProductsByPagnation = async(req,res)=>{
-    const {page} = req.query;
-    const convertedPage = Number(page);
+    const page = Number(req.query.page);
+    console.log("page count", page);
+    
+    
     const limit = 10;
-    const skip = (convertedPage - 1) * limit;
+    const skip = (page - 1) * limit;
     const products = await productUploadService.getProductsByPagnation(skip, limit);
 
     const totalProducts = await productUpload.countDocuments();
+    console.log(totalProducts, "total products");
     const totalPages = Math.ceil(totalProducts / limit);
+    console.log(totalPages, "the main amount pages");
     res.status(200).json({message:"Products fetched successfully", products, totalPages});
     
 }
