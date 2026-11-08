@@ -79,12 +79,14 @@ export const getALLproductsByQuery = async(req,res)=>{
 
 export const getProductsByPagnation = async(req,res)=>{
     const page = Number(req.query.page);
+    const category = req.query.category;
+    console.log(category, "category");
     console.log("page count", page);
     
     
     const limit = 10;
     const skip = (page - 1) * limit;
-    const products = await productUploadService.getProductsByPagnation(skip, limit);
+    const products = await productUploadService.getProductsByPagnation(skip, limit,category);
 
     const totalProducts = await productUpload.countDocuments();
     console.log(totalProducts, "total products");

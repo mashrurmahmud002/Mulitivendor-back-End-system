@@ -138,9 +138,62 @@ export const getALLproductsByQuery = async(category)=>{
     }
 }
 
-export const getProductsByPagnation = async(skip, limit)=>{
-    const products = await productUpload.find({}).skip(skip).limit(limit);
-    return products;
+export const getProductsByPagnation = async(skip, limit, category)=>{
+     if(category === "all"){
+        const products = await productUpload.find( {status:"active"}).skip(skip).limit(limit);
+        return products
+    }
+    if(category === "home"){
+        console.log("Hello home")
+        const products = await productUpload.find({category:"Home",  status:"active"}).skip(skip).limit(limit);
+        return products
+    }
+    if(category === "fashion"){
+        const products = await productUpload.find({category:"Fashion",  status:"active"}).skip(skip).limit(limit);
+        return products
+    }
+    if(category === "beauty"){
+        console.log("hello beauty")
+        const products = await productUpload.find({category:"Beauty",  status:"active"}).skip(skip).limit(limit);
+        console.log("The beauty info", products)
+        return products
+
+    }
+    if(category === "automotive"){
+        const products = await productUpload.find({category:"Automotive", status:"active"}).skip(skip).limit(limit);
+        console.log(products, "THis is form automative")
+        return products
+    }  
+    
+    if(category === "food"){
+        
+        const products = await productUpload.find({category:"Food", status:"active"}).skip(skip).limit(limit);
+        return products
+
+    }
+    if(category === "sports"){
+        console.log(category === "sports");
+        const products = await productUpload.find({category:"Sports",  status:"active"}).skip(skip).limit(limit);
+        console.log(products);
+        return products
+    }
+    if(category === "electronics"){
+        console.log("hello electronics");
+        const products = await productUpload.find({category:"Electronics",  status:"active"}).skip(skip).limit(limit);
+        console.log(products);
+        return products
+    }
+    if(category === "books"){
+        const products = await productUpload.find({category:"Books",  status:"active"}).skip(skip).limit(limit);
+        return products
+    }
+
+    if(skip && limit){
+        const products = await productUpload.find({}).skip(skip).limit(limit);
+        return products;
+    }
+    
+   
 }
 
 

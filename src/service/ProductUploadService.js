@@ -35,8 +35,8 @@ export const getALLproductsByQuery = async(category)=>{
     return products;
 }
 
-export const getProductsByPagnation = async(skip, limit)=>{
-    const products = await productUploadRepo.getProductsByPagnation(skip, limit);
+export const getProductsByPagnation = async(skip, limit, category)=>{
+    const products = await productUploadRepo.getProductsByPagnation(skip, limit, category);
     return products;
 }
 
