@@ -38,7 +38,7 @@ export const getProductsByQuery = async(category)=>{
         return products
     }
     if(category === "home"){
-        console.log("Hello home")
+        
         const products = await productUpload.find({category:"Home", createdAt:{$gte:threeDaysAgo}, status:"active"});
         return products
     }
@@ -47,15 +47,15 @@ export const getProductsByQuery = async(category)=>{
         return products
     }
     if(category === "beauty"){
-        console.log("hello beauty")
+        
         const products = await productUpload.find({category:"Beauty", createdAt:{$gte:threeDaysAgo}, status:"active"});
-        console.log("The beauty info", products)
+        
         return products
 
     }
     if(category === "automotive"){
         const products = await productUpload.find({category:"Automotive", createdAt:{$gte:threeDaysAgo}, status:"active"});
-        console.log(products, "THis is form automative")
+        
         return products
     }  
     
@@ -66,15 +66,15 @@ export const getProductsByQuery = async(category)=>{
 
     }
     if(category === "sports"){
-        console.log(category === "sports");
+        
         const products = await productUpload.find({category:"Sports", createdAt:{$gte:threeDaysAgo}, status:"active"});
-        console.log(products);
+        
         return products
     }
     if(category === "electronics"){
-        console.log("hello electronics");
+        
         const products = await productUpload.find({category:"Electronics", createdAt:{$gte:threeDaysAgo}, status:"active"});
-        console.log(products);
+        
         return products
     }
     if(category === "books"){
@@ -93,7 +93,7 @@ export const getALLproductsByQuery = async(category)=>{
         return products
     }
     if(category === "home"){
-        console.log("Hello home")
+        
         const products = await productUpload.find({category:"Home",  status:"active"});
         return products
     }
@@ -102,15 +102,15 @@ export const getALLproductsByQuery = async(category)=>{
         return products
     }
     if(category === "beauty"){
-        console.log("hello beauty")
+        
         const products = await productUpload.find({category:"Beauty",  status:"active"});
-        console.log("The beauty info", products)
+        
         return products
 
     }
     if(category === "automotive"){
         const products = await productUpload.find({category:"Automotive", status:"active"});
-        console.log(products, "THis is form automative")
+        
         return products
     }  
     
@@ -121,15 +121,15 @@ export const getALLproductsByQuery = async(category)=>{
 
     }
     if(category === "sports"){
-        console.log(category === "sports");
+        
         const products = await productUpload.find({category:"Sports",  status:"active"});
-        console.log(products);
+        
         return products
     }
     if(category === "electronics"){
-        console.log("hello electronics");
+        
         const products = await productUpload.find({category:"Electronics",  status:"active"});
-        console.log(products);
+        
         return products
     }
     if(category === "books"){
@@ -144,7 +144,7 @@ export const getProductsByPagnation = async(skip, limit, category)=>{
         return products
     }
     if(category === "home"){
-        console.log("Hello home")
+        
         const products = await productUpload.find({category:"Home",  status:"active"}).skip(skip).limit(limit);
         return products
     }
@@ -153,15 +153,15 @@ export const getProductsByPagnation = async(skip, limit, category)=>{
         return products
     }
     if(category === "beauty"){
-        console.log("hello beauty")
+        
         const products = await productUpload.find({category:"Beauty",  status:"active"}).skip(skip).limit(limit);
-        console.log("The beauty info", products)
+        
         return products
 
     }
     if(category === "automotive"){
         const products = await productUpload.find({category:"Automotive", status:"active"}).skip(skip).limit(limit);
-        console.log(products, "THis is form automative")
+        
         return products
     }  
     
@@ -172,15 +172,15 @@ export const getProductsByPagnation = async(skip, limit, category)=>{
 
     }
     if(category === "sports"){
-        console.log(category === "sports");
+        
         const products = await productUpload.find({category:"Sports",  status:"active"}).skip(skip).limit(limit);
-        console.log(products);
+        
         return products
     }
     if(category === "electronics"){
-        console.log("hello electronics");
+        
         const products = await productUpload.find({category:"Electronics",  status:"active"}).skip(skip).limit(limit);
-        console.log(products);
+        
         return products
     }
     if(category === "books"){

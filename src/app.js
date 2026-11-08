@@ -126,7 +126,7 @@ try{
 app.get('/api/generate-sku', (req, res) => {
 
   const newSku = generateSkutoken();
-  console.log("hello")
+  
   
   res.json({
     success: true,

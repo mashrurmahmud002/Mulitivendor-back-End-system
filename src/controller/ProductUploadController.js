@@ -5,7 +5,7 @@ import productUploadService from "../service/ProductUploadService.js";
 export const uploadProduct = async(req,res)=>{
 
 
-    console.log("hello", req.body);
+    
 
     const product = await productUploadService.uploadProduct(req.body);
     res.status(200).json({
@@ -27,7 +27,7 @@ export const getProducts = async(req,res)=>{
 export const searchProducts = async(req,res)=>{
 
     const {title}= req.query;
-    console.log(title);
+    
     const products = await productUploadService.searchProducts(title);
     res.status(200).json({
         message:"Products fetched successfully",
@@ -47,7 +47,7 @@ export const getProductsByVendorId = async(req,res)=>{
 
 export const getProductsByQuery = async(req,res)=>{
     const {category} = req.query;
-    console.log(category, "category");
+    
     
 
     const products = await productUploadService.getProductsByQuery(category);
@@ -59,7 +59,7 @@ export const getProductsByQuery = async(req,res)=>{
         return res.status(400).json({message:"Products not found"})
     }
    
-    console.log("hello baccho")
+    
     res.status(200).json({
         message:"Products fetched successfully",
         products
@@ -69,7 +69,7 @@ export const getProductsByQuery = async(req,res)=>{
 
 export const getALLproductsByQuery = async(req,res)=>{
     const {category} = req.query;
-    console.log(category, "category is from getALLproductsByQuery ");
+    
     if(category){
         const products = await productUploadService.getALLproductsByQuery(category);
         return res.status(200).json({message:"Products fetched successfully", products});
@@ -80,8 +80,8 @@ export const getALLproductsByQuery = async(req,res)=>{
 export const getProductsByPagnation = async(req,res)=>{
     const page = Number(req.query.page);
     const category = req.query.category;
-    console.log(category, "category");
-    console.log("page count", page);
+    
+    
     
     
     const limit = 10;
@@ -89,9 +89,9 @@ export const getProductsByPagnation = async(req,res)=>{
     const products = await productUploadService.getProductsByPagnation(skip, limit,category);
 
     const totalProducts = await productUpload.countDocuments();
-    console.log(totalProducts, "total products");
+    
     const totalPages = Math.ceil(totalProducts / limit);
-    console.log(totalPages, "the main amount pages");
+    
     res.status(200).json({message:"Products fetched successfully", products, totalPages});
     
 }

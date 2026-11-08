@@ -44,9 +44,9 @@ export const loginUser = async(req,res)=>{
         return res.status(400).json({message:"Please fill all the fields"});
     }
     const user = await authService.findIdbyEmail(email);
-    console.log(user,"user is ")
+    
     if(!user){
-        console.log("I am comming")
+        
         return res.status(400).json({message:"User not found"});
     }
     const isValidPassword = await bcrypt.compare(password, user?.password);
