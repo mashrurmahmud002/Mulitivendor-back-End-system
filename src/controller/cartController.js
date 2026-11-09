@@ -32,6 +32,21 @@ export const addToCart = async(req,res)=>{
     }
 }
 
+
+export const updateCart = async(req,res)=>{
+    const {quantity,price} = req.body;
+    const {_id} = req.user;
+    const id = req.params._id;
+    const cart = await cartService.updateCart(_id,id,quantity,price);
+    if(cart){
+        return res.status(200).json({message:"Cart updated successfully", success:true, data:{cart}});
+    }
+    else{
+        return res.status(400).json({message:"Cart not updated", success:false});
+    }
+
+}
+
 export const getUserCart = async(req,res)=>{
 
      const {_id} = req?.user;
@@ -97,5 +112,6 @@ export default {
     addToCart,
     getUserCart,
     deleteFromCart,
-    getUserCartlength
+    getUserCartlength,
+    updateCart 
 }

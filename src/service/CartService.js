@@ -16,10 +16,16 @@ export const deleteFromCart = async(id)=>{
     return cart;
 }
 
+export const updateCart = async(userId,id,quantity,price)=>{
+    const cart = await cartRepo.updateCart(userId,id,quantity,price);
+    return cart 
+}
+
 
 
 export default {
     addToCart,
     getUserCart,
-    deleteFromCart
+    deleteFromCart,
+    updateCart
 }

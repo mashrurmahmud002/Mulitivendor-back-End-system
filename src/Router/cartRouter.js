@@ -10,6 +10,7 @@ router.post('/add-to-cart',  cartController.addToCart);
 router.get('/get-user-cart', protectRouter ,cartController.getUserCart);
 router.delete('/delete-from-cart/:id', protectRouter ,cartController.deleteFromCart);
 router.get('/get-cart-length', protectRouter ,cartController.getUserCartlength);
+router.put('/update-cart-product-quantity', protectRouter ,cartController.updateCart);
 
 
 
