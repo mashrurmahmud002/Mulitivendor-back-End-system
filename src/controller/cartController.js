@@ -83,7 +83,8 @@ export const deleteFromCart = async(req, res)=>{
 
 
 export const getUserCartlength = async(req, res)=>{
-    const cartItemLength = await cart.find({userId:req.user._id}).countDocuments();
+    console.log("Hello i am cart length")
+    const cartItemLength = await cart.find({userId:req.user?._id}).countDocuments();
     res.status(200).json({message:"Cart length fetched successfully", success:true, data:{cartItemLength}});
 }
 
