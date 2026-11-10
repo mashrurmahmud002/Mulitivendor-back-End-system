@@ -17,6 +17,7 @@ const orderSchema = new mongoose.Schema(
           ref: "ProductUpload", // আপনার প্রোডাক্ট মডেলের নাম অনুযায়ী
           required: true,
         },
+        
         quantity: {
           type: Number,
           required: true,
@@ -24,7 +25,7 @@ const orderSchema = new mongoose.Schema(
         },
         price: {
           type: Number,
-          required: true, // অর্ডার করার সময় প্রোডাক্টের দাম কত ছিল
+          required: true, 
         },
       },
     ],
@@ -36,13 +37,13 @@ const orderSchema = new mongoose.Schema(
     },
 
    
-    shippingAddress: {
-      fullName: { type: String, required: true },
-      phone: { type: String, required: true },
-      address: { type: String, required: true },
-      city: { type: String, required: true },
-      postalCode: { type: String },
-    },
+    // shippingAddress: {
+    //   fullName: { type: String, required: true },
+    //   phone: { type: String, required: true },
+    //   address: { type: String, required: true },
+    //   city: { type: String, required: true },
+    //   postalCode: { type: String },
+    // },
 
     
     paymentStatus: {
@@ -52,9 +53,9 @@ const orderSchema = new mongoose.Schema(
     },
     
     
-    transactionId: {
-      type: String,
-    },
+    // transactionId: {
+    //   type: String,
+    // },
 
    
     orderStatus: {

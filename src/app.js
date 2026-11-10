@@ -22,6 +22,10 @@ import cookieParser from "cookie-parser";
 import Stripe from "stripe";
 
 import cartRouter from "./Router/cartRouter.js";
+import orderRouter from "./Router/OrderRouter.js";
+
+
+
 
 
 
@@ -73,6 +77,8 @@ app.use('/api/sub-category', subcategoryRouter);
 app.use("/api/vendor-auth", vendorRouter );
 app.use('/api/vendor-product-upload', productUploadRouter);
 app.use('/api/vendor-product-add-to-cart', cartRouter);
+
+app.use('/api/order-data', orderRouter )
 
 
 app.use("/api/auth", authRouter);
