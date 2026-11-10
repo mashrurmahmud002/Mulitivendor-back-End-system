@@ -16,8 +16,8 @@ export const deleteFromCart = async(id)=>{
     return cart;
 }
 
-export const updateCart = async(userId,id,quantity,price)=>{
-    const cart = await cartRepo.updateCart(userId,id,quantity,price);
+export const updateCart = async(id,quantity)=>{
+    const cart = await cartRepo.updateCart(id,quantity);
     return cart 
 }
 

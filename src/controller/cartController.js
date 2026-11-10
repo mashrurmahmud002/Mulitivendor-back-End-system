@@ -34,10 +34,14 @@ export const addToCart = async(req,res)=>{
 
 
 export const updateCart = async(req,res)=>{
-    const {quantity,price} = req.body;
-    const {_id} = req.user;
-    const id = req.params._id;
-    const cart = await cartService.updateCart(_id,id,quantity,price);
+    const {quantity} = req.body;
+
+    console.log(quantity,"quantity");
+
+    
+    
+    const id = req.params.id;
+    const cart = await cartService.updateCart(id,quantity);
     if(cart){
         return res.status(200).json({message:"Cart updated successfully", success:true, data:{cart}});
     }

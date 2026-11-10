@@ -18,11 +18,11 @@ export const deleteFromCart = async(productId)=>{
     return cart1
 }
 
-export const updateCart = async(userId,id,quantity,price)=>{
-    if(userId){
-        const cart1 = await cart.findOneAndUpdate({_id:id},{quantity,price},{new:true,runValidators: true});
+export const updateCart = async(id,quantity)=>{
+    
+        const cart1 = await cart.findOneAndUpdate({_id:id},{quantity},{returnDocument:"after",runValidators: true});
         return cart1;
-    }
+    
 }
 
 
